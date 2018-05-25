@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/gdml.xsd">
 
-<define>
-     <position name="targetCenter" x="0" y="0" z="0"/>
-     <position name="upstreamCenter" x="0" y="0" z="7000."/>
-     <position name="hybridCenter" x="0" y="0" z="13366.57"/>
-     <position name="detectorCenter" x="0" y="0" z="28500."/>
-     <position name="pionDetectorCenter" x="0" y="0" z="32000."/>
-     <rotation name="identity"/>
+<define> 
+  <position name="hallCenter" x="0" y="0" z="4000"/>
+  <position name="targetCenter" x="0" y="0" z="0"/>
+  <position name="upstreamCenter" x="0" y="0" z="7000."/>
+  <position name="hybridCenter" x="0" y="0" z="13366.57"/>
+  <position name="detectorCenter" x="0" y="0" z="28500."/>
+  <rotation name="identity"/>
 </define>
 
 <materials>
@@ -20,7 +20,7 @@
 </materials>
 
 <solids>
-     <box lunit="mm" name="boxMother" x="4000" y="4000" z="80000"/>
+     <box lunit="mm" name="boxMother" x="200000" y="200000" z="200000"/>
 </solids>
 
   <structure>
@@ -30,30 +30,35 @@
       <solidref ref="boxMother"/>
 
       <physvol>
-      <file name="geometry/targetDaughter.gdml"/>
+      <file name="geometry/targetDaughter_noShlds.gdml"/>
       <positionref ref="targetCenter"/>
       <rotationref ref="identity"/>
       </physvol>
+
       <physvol>
-      <file name="geometry/detectorDaughter.gdml"/>
+      <file name="geometry/hallDaughter_merged.gdml"/>
+      <positionref ref="hallCenter"/>
+      <rotationref ref="identity"/>
+      </physvol>
+
+      <physvol>
+      <file name="geometry/detectorDaughter_merged.gdml"/>
       <positionref ref="detectorCenter"/>
       <rotationref ref="identity"/>
       </physvol>
+
       <physvol>
-      <file name="geometry/pionDetectorSystem.gdml"/>
-      <positionref ref="pionDetectorCenter"/>
-      <rotationref ref="identity"/>
+	    <file name="geometry/upstreamDaughter_noShlds.gdml"/>
+	    <positionref ref="upstreamCenter"/>
+    	<rotationref ref="identity"/>
       </physvol>
+
       <physvol>
-      <file name="geometry/upstreamDaughter.gdml"/>
-      <positionref ref="upstreamCenter"/>
-      <rotationref ref="identity"/>
-      </physvol>
-      <physvol>
-      <file name="geometry/hybridDaughter.gdml"/>
-      <positionref ref="hybridCenter"/>
-      <rotationref ref="identity"/>
-      </physvol> 
+    	<file name="geometry/hybridDaughter_noShlds.gdml"/>
+	    <positionref ref="hybridCenter"/>
+    	<rotationref ref="identity"/>
+      </physvol>    
+
 
     </volume>
   </structure>
@@ -61,5 +66,5 @@
   <setup name="Default" version="1.0">
     <world ref="logicMother"/>
   </setup>
-
-</gdml>
+ 
+</gdml> 
