@@ -18,10 +18,8 @@
        <atom unit="g/mole" value="1.01"/>
      </material>
 </materials>
- 
+
 <solids>
-     <!-- <box lunit="mm" name="boxMother" x="80000" y="80000" z="80000"/> --> 
-     <!-- <box lunit="mm" name="boxMother" x="100000" y="100000" z="100000"/> -->
      <box lunit="mm" name="boxMother" x="200000" y="200000" z="200000"/>
 </solids>
 
@@ -51,15 +49,15 @@
       </physvol>
 
       <physvol>
-      <file name="upstreamDaughter_merged_design1_check3.gdml"/>
-      <positionref ref="upstreamCenter"/>
-      <rotationref ref="identity"/>
+	    <file name="upstreamDaughter_merged.gdml"/>
+	    <positionref ref="upstreamCenter"/>
+    	<rotationref ref="identity"/>
       </physvol>
 
       <physvol>
-      <file name="hybridDaughter_less_hybshld_roof_smaller_2.gdml"/>
-      <positionref ref="hybridCenter"/>
-      <rotationref ref="identity"/>
+    	<file name="hybridDaughter_roof.gdml"/>
+	    <positionref ref="hybridCenter"/>
+    	<rotationref ref="identity"/>
       </physvol>    
 
 
